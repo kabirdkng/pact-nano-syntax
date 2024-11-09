@@ -107,20 +107,46 @@ Add these to your `~/.nanorc` for the best experience:
 
 ```nanorc
 # Display
-set linenumbers      # Show line numbers
-set constantshow     # Show cursor position
-set smooth           # Smooth scrolling
+set linenumbers          # Show line numbers
+set constantshow         # Show cursor position
+set numbercolor cyan     # Color for line numbers
 
 # Editing
-set tabsize 2        # 2-space indentation
-set tabstospaces     # Convert tabs to spaces
-set autoindent       # Automatic indentation
-set softwrap         # Wrap long lines
+set tabsize 2           # 2-space indentation
+set tabstospaces        # Convert tabs to spaces
+set autoindent          # Automatic indentation
+set softwrap            # Wrap long lines
+set breaklonglines      # Break long lines at screen edge
 
 # Interface
-set mouse           # Enable mouse support
-set cutfromcursor   # Cut from cursor to end of line
+set mouse              # Enable mouse support
+set cutfromcursor      # Cut from cursor to end of line
+
+# File handling
+set backup             # Create backup files
+set backupdir "~/.nano/backups"  # Directory for backup files
+
+# Key bindings
+set multibuffer        # Enable multiple file buffers
+set showcursor         # Show cursor position
 ```
+
+Optional advanced settings (check if your nano version supports these):
+```nanorc
+# If supported by your nano version:
+set guidestripe 80     # Show vertical guide at column 80
+set minibar            # Show minibar
+set indicator          # Show scroll position indicator
+```
+
+To check your nano version and supported options:
+```bash
+nano --version
+nano --help
+```
+
+Different nano versions support different options. If you get an "Unknown option" error, simply remove that line from your `.nanorc` file. The syntax highlighting will work regardless of these additional settings.
+
 
 ### Color Customization
 Colors can be customized by editing `~/.nano/pact.nanorc`. Available colors:
