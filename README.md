@@ -13,12 +13,12 @@ A vibrant, eye-pleasing syntax highlighting configuration for the [Pact smart co
 
 ### Quick Install
 ```bash
-curl -sL https://raw.githubusercontent.com/yourusername/pact-nano-syntax/main/install.sh | bash
+curl -sL https://raw.githubusercontent.com/kabirdkng/pact-nano-syntax/master/install.sh | bash
 ```
 
 ### Manual Installation
 ```bash
-git clone https://github.com/yourusername/pact-nano-syntax.git
+git clone https://github.com/kabirdkng/pact-nano-syntax.git
 cd pact-nano-syntax
 ./install.sh
 ```
