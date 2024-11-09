@@ -1,78 +1,10 @@
-# Pact Syntax Highlighting for Nano
-
-A vibrant, eye-pleasing syntax highlighting configuration for the [Pact smart contract language](https://pact-language.readthedocs.io/) in the Nano text editor.
-
-## Features
-
-- Modern and vibrant color scheme
-- Complete Pact language syntax support
-- Easy installation
-- Example contracts included
-
-## Installation
-
-### Quick Install
-```bash
-curl -sL https://raw.githubusercontent.com/kabirdkng/pact-nano-syntax/master/install.sh | bash
-```
-
-### Manual Installation
-```bash
-git clone https://github.com/kabirdkng/pact-nano-syntax.git
-cd pact-nano-syntax
-./install.sh
-```
-
-## Usage
-
-The syntax highlighting activates automatically for files with `.pact` and `.repl` extensions:
-
-```bash
-# Create a new Pact file
-nano mycontract.pact
-
-# Open an existing file
-nano existing.pact
-```
-
-### Recommended Nano Settings
-
-Add to your `~/.nanorc`:
-```nanorc
-set linenumbers
-set tabsize 2
-set autoindent
-```
-
-## Examples
-
-Check the `examples/` directory for:
-- `basic.pact`: Simple module
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch: `git checkout -b feature/amazing-feature`
-3. Commit your changes: `git commit -m 'Add amazing feature'`
-4. Push to the branch: `git push origin feature/amazing-feature`
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the BSD 3-Clause License - see the [LICENSE](LICENSE) file for details.
-
----
-
-<div align="center">
-Made with ❤️ for the Pact community
-</div>
 # 🎨 Pact Syntax Highlighting for Nano
 
 <div align="center">
 
 [![License](https://img.shields.io/badge/license-BSD%203--Clause-blue.svg)](LICENSE)
-[![GitHub Issues](https://img.shields.io/github/issues/yourusername/pact-nano-syntax.svg)](https://github.com/yourusername/pact-nano-syntax/issues)
-[![GitHub Stars](https://img.shields.io/github/stars/yourusername/pact-nano-syntax.svg)](https://github.com/yourusername/pact-nano-syntax/stargazers)
+[![GitHub Issues](https://img.shields.io/github/issues/kabirdkng/pact-nano-syntax.svg)](https://github.com/kabirdkng/pact-nano-syntax/issues)
+[![GitHub Stars](https://img.shields.io/github/stars/kabirdkng/pact-nano-syntax.svg)](https://github.com/kabirdkng/pact-nano-syntax/stargazers)
 
 A vibrant, eye-pleasing syntax highlighting configuration for the [Pact smart contract language](https://pact-language.readthedocs.io/) in the Nano text editor.
 
@@ -118,34 +50,31 @@ A vibrant, eye-pleasing syntax highlighting configuration for the [Pact smart co
 
 ### Prerequisites
 - Nano text editor (v2.0.0 or higher)
-- Git (for cloning the repository)
+- Git (optional, for cloning the repository)
 
 ### Quick Install
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/pact-nano-syntax.git
-
-# Navigate to directory
-cd pact-nano-syntax
-
-# Run installer
-./install.sh
+curl -sL https://raw.githubusercontent.com/kabirdkng/pact-nano-syntax/master/install.sh | bash
 ```
 
 ### Manual Installation
-1. Create nano syntax directory:
+1. Clone the repository (optional):
 ```bash
+git clone https://github.com/kabirdkng/pact-nano-syntax.git
+cd pact-nano-syntax
+./install.sh
+```
+
+2. Or install files manually:
+```bash
+# Create nano syntax directory
 mkdir -p ~/.nano
-```
 
-2. Copy syntax file:
-```bash
-cp pact.nanorc ~/.nano/
-```
+# Copy syntax file
+curl -sL https://raw.githubusercontent.com/kabirdkng/pact-nano-syntax/master/pact.nanorc -o ~/.nano/pact.nanorc
 
-3. Add to `~/.nanorc`:
-```nanorc
-include "~/.nano/pact.nanorc"
+# Add to nanorc
+echo 'include "~/.nano/pact.nanorc"' >> ~/.nanorc
 ```
 
 ## 🎮 Usage
@@ -267,11 +196,11 @@ git push origin feature/amazing-feature
 
 This project is licensed under the BSD 3-Clause License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## 📦 Repository
 
-- Pact Language Team
-- Nano Editor Community
-- All Contributors
+- GitHub: [https://github.com/kabirdkng/pact-nano-syntax](https://github.com/kabirdkng/pact-nano-syntax)
+- Issues: [https://github.com/kabirdkng/pact-nano-syntax/issues](https://github.com/kabirdkng/pact-nano-syntax/issues)
+- Pull Requests: [https://github.com/kabirdkng/pact-nano-syntax/pulls](https://github.com/kabirdkng/pact-nano-syntax/pulls)
 
 ## 🔗 Useful Links
 
@@ -284,5 +213,5 @@ This project is licensed under the BSD 3-Clause License - see the [LICENSE](LICE
 <div align="center">
 Made with ❤️ for the Pact community
 
-[Report Bug](https://github.com/yourusername/pact-nano-syntax/issues) • [Request Feature](https://github.com/yourusername/pact-nano-syntax/issues)
+[Report Bug](https://github.com/kabirdkng/pact-nano-syntax/issues) • [Request Feature](https://github.com/kabirdkng/pact-nano-syntax/issues)
 </div>
