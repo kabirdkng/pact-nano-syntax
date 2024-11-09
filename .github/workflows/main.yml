@@ -1,0 +1,68 @@
+name: Pact Syntax Validation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: Validate Configuration
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up environment
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y nano
+
+      - name: Verify file structure
+        run: |
+          for file in \
+            "LICENSE" \
+            "README.md" \
+            "install.sh" \
+            "pact.nanorc" \
+            "examples/basic.pact" \
+            "examples/advanced.pact"
+          do
+            if [ ! -f "$file" ]; then
+              echo "Required file not found: $file"
+              exit 1
+            fi
+          done
+
+      - name: Verify permissions
+        run: |
+          test -x install.sh || (chmod +x install.sh && git add install.sh)
+
+      - name: Test installation
+        run: |
+          mkdir -p ~/.nano
+          cp pact.nanorc ~/.nano/
+          echo 'include "~/.nano/pact.nanorc"' >> ~/.nanorc
+
+      - name: Verify syntax file
+        run: |
+          nano -V
+          for file in examples/*.pact; do
+            echo "Testing syntax highlighting with $file"
+            nano -S "$file" --output-errors 2>&1 | (! grep "Error in")
+          done
+
+      - name: Verify license
+        run: |
+          test -f LICENSE || (echo "LICENSE file not found" && exit 1)
+          grep -q "BSD 3-Clause License" LICENSE || (echo "Incorrect license type" && exit 1)
+
+      - name: Verify documentation
+        run: |
+          test -f README.md || (echo "README.md not found" && exit 1)
+          grep -q "Installation" README.md || (echo "README missing installation section" && exit 1)
+          grep -q "Usage" README.md || (echo "README missing usage section" && exit 1)
+          grep -q "License" README.md || (echo "README missing license section" && exit 1)

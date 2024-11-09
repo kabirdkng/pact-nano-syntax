@@ -1,0 +1,52 @@
+(load "init.repl")
+
+(env-data {
+      "gov": {
+         "keys": ["test"],
+         "pred": "keys-all"
+       }
+})
+
+(namespace 'free)
+(define-keyset "free.gov" (read-keyset "gov"))
+
+(module mod4 GOV
+    (defcap GOV ()
+      (enforce-guard (keyset-ref-guard "free.gov"))
+    )
+
+    (defschema number-values
+     @doc "stores number values"
+     name:string
+     value:decimal
+    )
+
+    (deftable numbers:{number-values})
+
+ ; Calculator functions
+ 
+ (defun add (x y)
+  (+ x y)
+ )
+
+ (defun add-write (x:decimal y:decimal name:string)
+    (let (
+        (value:decimal (add x y))
+    )
+    (insert numbers name
+        {
+            'name: name
+           ,'value:value 
+        }
+    )
+  )
+ 
+ )
+
+   (defun get-adds (name:string)
+    (read numbers name)
+   )
+
+)
+
+(create-table mod4.numbers)
